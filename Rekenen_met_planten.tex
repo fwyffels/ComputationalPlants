@@ -1,0 +1,1068 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Rekenen\_met\_planten}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Calculating with plants}\label{calculating-with-plants}
+
+In this notebook we performed a simple exploratory data analysis of the
+tree data. We did the following simple experiments
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  predicting temperature based on tree measurements in time
+\item
+  preforming feature selection
+\item
+  using ICA to find independent subsystems
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{pylab} \PY{k+kn}{as} \PY{n+nn}{pl}
+        \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k+kn}{as} \PY{n+nn}{sb}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k+kn}{import} \PY{n}{linear\PYZus{}model}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k+kn}{as} \PY{n+nn}{pd}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING} \PY{o}{=} \PY{l+m+mi}{24}\PY{o}{*}\PY{l+m+mi}{60}\PY{o}{*}\PY{l+m+mf}{1.5}
+        \PY{n}{A\PYZus{}DAY} \PY{o}{=} \PY{l+m+mi}{60}\PY{o}{*}\PY{l+m+mi}{24}
+        
+        \PY{c}{\PYZsh{} data preparation}
+        \PY{n}{data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{genfromtxt}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{20140907\PYZus{}data\PYZus{}plants\PYZus{}trial.csv}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{delimiter}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{,}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{Y} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}
+        \PY{n}{Y}\PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{isnan}\PY{p}{(}\PY{n}{Y}\PY{p}{)}\PY{p}{]}\PY{o}{=}\PY{l+m+mi}{0} \PY{c}{\PYZsh{} replace nan\PYZsq{}s by zero, better use interpolation!!!}
+        \PY{n}{X} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{:}\PY{p}{]}
+        \PY{n}{X\PYZus{}norm}\PY{o}{=}\PY{p}{(}\PY{n}{X}\PY{o}{\PYZhy{}}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{std}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}
+        \PY{n}{Y\PYZus{}norm}\PY{o}{=}\PY{p}{(}\PY{n}{Y}\PY{o}{\PYZhy{}}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{Y}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n}{np}\PY{o}{.}\PY{n}{std}\PY{p}{(}\PY{n}{Y}\PY{p}{)}
+        
+        \PY{n}{features} \PY{o}{=} \PY{p}{[} \PY{l+s}{u\PYZsq{}}\PY{l+s}{LPS1}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{u\PYZsq{}}\PY{l+s}{LPS5}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{u\PYZsq{}}\PY{l+s}{LPS4}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{u\PYZsq{}}\PY{l+s}{LPS6}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{u\PYZsq{}}\PY{l+s}{TDP0cm}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{u\PYZsq{}}\PY{l+s}{TDP14cm}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c}{\PYZsh{} EXPERIMENT: memory versus prediction RIDGE REGRESSION}
+        \PY{c}{\PYZsh{} train and test data}
+        \PY{n}{Y\PYZus{}norm\PYZus{}train} \PY{o}{=} \PY{n}{Y\PYZus{}norm}\PY{p}{[}\PY{n}{A\PYZus{}DAY}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+        \PY{n}{Y\PYZus{}norm\PYZus{}test} \PY{o}{=} \PY{n}{Y\PYZus{}norm}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+-c:3: DeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+-c:4: DeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n}{clf} \PY{o}{=} \PY{n}{linear\PYZus{}model}\PY{o}{.}\PY{n}{Ridge}\PY{p}{(}\PY{n}{fit\PYZus{}intercept}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{,}\PY{n}{normalize}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{)}
+        \PY{n}{MAE\PYZus{}train} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{MAE\PYZus{}test} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{predictions} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{k}{for} \PY{n}{time} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{p}{,}\PY{n}{A\PYZus{}DAY}\PY{p}{)}\PY{p}{:}
+            \PY{n}{X\PYZus{}norm\PYZus{}train} \PY{o}{=} \PY{n}{X\PYZus{}norm}\PY{p}{[}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{p}{,}\PY{p}{:}\PY{p}{]}   \PY{c}{\PYZsh{} \PYZhy{}time: we go from fitting the past to prediction}
+            \PY{n}{X\PYZus{}norm\PYZus{}test} \PY{o}{=} \PY{n}{X\PYZus{}norm}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{p}{,}\PY{p}{:}\PY{p}{]}
+            \PY{n}{clf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}norm\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}norm\PYZus{}train}\PY{p}{)}
+            \PY{c}{\PYZsh{} train error}
+            \PY{n}{Y\PYZus{}pred} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}norm\PYZus{}train}\PY{p}{)}
+            \PY{n}{MAE\PYZus{}train}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{absolute}\PY{p}{(}\PY{n}{Y\PYZus{}pred}\PY{o}{\PYZhy{}}\PY{n}{Y\PYZus{}norm\PYZus{}train}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+            \PY{c}{\PYZsh{} test error}
+            \PY{n}{Y\PYZus{}pred} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}norm\PYZus{}test}\PY{p}{)}
+            \PY{n}{predictions}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Y\PYZus{}pred}\PY{p}{)}
+            \PY{n}{MAE\PYZus{}test}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{absolute}\PY{p}{(}\PY{n}{Y\PYZus{}pred}\PY{o}{\PYZhy{}}\PY{n}{Y\PYZus{}norm\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+-c:6: DeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+-c:7: DeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c}{\PYZsh{} plot MAE in function of time}
+        \PY{n}{ax} \PY{o}{=} \PY{n}{pl}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}color\PYZus{}cycle}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+        
+        \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{p}{,}\PY{n}{A\PYZus{}DAY}\PY{p}{)}\PY{p}{,} \PY{n}{MAE\PYZus{}train}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{p}{,}\PY{n}{A\PYZus{}DAY}\PY{p}{)}\PY{p}{,} \PY{n}{MAE\PYZus{}test}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time shift in minutes}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{MAE}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{MAE train (blue) and test (red) as a function of the time shift}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{tight}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_5_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    It is clear that we can predict temperature based on the tree
+measurements. The best prediction is predicting the temperature some
+momements in the past.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c}{\PYZsh{} EXPERIMENT: memory versus prediction with LASSO}
+        \PY{c}{\PYZsh{} train and test data}
+        \PY{n}{Y\PYZus{}norm\PYZus{}train} \PY{o}{=} \PY{n}{Y\PYZus{}norm}\PY{p}{[}\PY{n}{A\PYZus{}DAY}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+        \PY{n}{Y\PYZus{}norm\PYZus{}test} \PY{o}{=} \PY{n}{Y\PYZus{}norm}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+        
+        \PY{n}{clf} \PY{o}{=} \PY{n}{linear\PYZus{}model}\PY{o}{.}\PY{n}{Lasso}\PY{p}{(}\PY{n}{fit\PYZus{}intercept}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{,}\PY{n}{normalize}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.01}\PY{p}{)}
+        \PY{n}{MAE\PYZus{}train} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{MAE\PYZus{}test} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{predictions} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{coefs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{p}{,}\PY{n}{A\PYZus{}DAY}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+        \PY{n}{nr} \PY{o}{=} \PY{l+m+mi}{0}
+        \PY{k}{for} \PY{n}{time} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{p}{,}\PY{n}{A\PYZus{}DAY}\PY{p}{)}\PY{p}{:}
+            \PY{n}{X\PYZus{}norm\PYZus{}train} \PY{o}{=} \PY{n}{X\PYZus{}norm}\PY{p}{[}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{p}{,}\PY{p}{:}\PY{p}{]}   \PY{c}{\PYZsh{} \PYZhy{}time: we go from fitting the past to prediction}
+            \PY{n}{X\PYZus{}norm\PYZus{}test} \PY{o}{=} \PY{n}{X\PYZus{}norm}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{p}{,}\PY{p}{:}\PY{p}{]}
+            \PY{n}{clf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}norm\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}norm\PYZus{}train}\PY{p}{)}
+            \PY{n}{coefs}\PY{p}{[}\PY{n}{nr}\PY{p}{]} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{coef\PYZus{}}
+            \PY{c}{\PYZsh{} train error}
+            \PY{n}{Y\PYZus{}pred} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}norm\PYZus{}train}\PY{p}{)}
+            \PY{n}{MAE\PYZus{}train}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{absolute}\PY{p}{(}\PY{n}{Y\PYZus{}pred}\PY{o}{\PYZhy{}}\PY{n}{Y\PYZus{}norm\PYZus{}train}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+            \PY{c}{\PYZsh{} test error}
+            \PY{n}{Y\PYZus{}pred} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}norm\PYZus{}test}\PY{p}{)}
+            \PY{n}{predictions}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Y\PYZus{}pred}\PY{p}{)}
+            \PY{n}{MAE\PYZus{}test}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{absolute}\PY{p}{(}\PY{n}{Y\PYZus{}pred}\PY{o}{\PYZhy{}}\PY{n}{Y\PYZus{}norm\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+            \PY{n}{nr} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+-c:13: DeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+-c:14: DeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{c}{\PYZsh{} plot MAE in function of time}
+        \PY{n}{ax} \PY{o}{=} \PY{n}{pl}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}color\PYZus{}cycle}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+        
+        \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{p}{,}\PY{n}{A\PYZus{}DAY}\PY{p}{)}\PY{p}{,} \PY{n}{MAE\PYZus{}train}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{p}{,}\PY{n}{A\PYZus{}DAY}\PY{p}{)}\PY{p}{,} \PY{n}{MAE\PYZus{}test}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time shift in minutes}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{MAE}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{MAE train (blue) and test (red) as a function of the time shift}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{tight}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_8_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{ax} \PY{o}{=} \PY{n}{pl}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}color\PYZus{}cycle}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{m}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+        
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{:}
+            \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{p}{,}\PY{n}{A\PYZus{}DAY}\PY{p}{)}\PY{p}{,} \PY{n}{coefs}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{n}{features}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time shift in minutes}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{coefficients}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{coefficients in function of shifted time}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{tight}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+        \PY{n}{pl}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_9_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{c}{\PYZsh{} EXPERIMENT: memory versus prediction with LARS}
+        \PY{c}{\PYZsh{} train and test data}
+        \PY{n}{Y\PYZus{}norm\PYZus{}train} \PY{o}{=} \PY{n}{Y\PYZus{}norm}\PY{p}{[}\PY{n}{A\PYZus{}DAY}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+        \PY{n}{Y\PYZus{}norm\PYZus{}test} \PY{o}{=} \PY{n}{Y\PYZus{}norm}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+        
+        \PY{n}{MAE\PYZus{}train} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{MAE\PYZus{}test} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{predictions} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{n}{coefs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        \PY{k}{for} \PY{n}{time} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{p}{,}\PY{n}{A\PYZus{}DAY}\PY{p}{,}\PY{l+m+mi}{60}\PY{p}{)}\PY{p}{:}
+            \PY{k}{print} \PY{n}{time}
+            \PY{n}{X\PYZus{}norm\PYZus{}train} \PY{o}{=} \PY{n}{X\PYZus{}norm}\PY{p}{[}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{A\PYZus{}DAY}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{p}{,}\PY{p}{:}\PY{p}{]}   \PY{c}{\PYZsh{} \PYZhy{}time: we go from fitting the past to prediction}
+            \PY{n}{alphas}\PY{p}{,} \PY{n}{\PYZus{}}\PY{p}{,} \PY{n}{coefs} \PY{o}{=} \PY{n}{linear\PYZus{}model}\PY{o}{.}\PY{n}{lars\PYZus{}path}\PY{p}{(}\PY{n}{X\PYZus{}norm\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}norm\PYZus{}train}\PY{p}{,} \PY{n}{method}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{lasso}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+        
+            \PY{n}{xx} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{coefs}\PY{o}{.}\PY{n}{T}\PY{p}{)}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+            \PY{n}{xx} \PY{o}{/}\PY{o}{=} \PY{n}{xx}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}
+        
+            \PY{n}{ax} \PY{o}{=} \PY{n}{pl}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}
+            \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}color\PYZus{}cycle}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{m}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{:}
+                \PY{n}{pl}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xx}\PY{p}{,} \PY{n}{coefs}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{T}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{n}{features}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+            \PY{n}{ymin}\PY{p}{,} \PY{n}{ymax} \PY{o}{=} \PY{n}{pl}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{p}{)}
+            \PY{n}{pl}\PY{o}{.}\PY{n}{vlines}\PY{p}{(}\PY{n}{xx}\PY{p}{,} \PY{n}{ymin}\PY{p}{,} \PY{n}{ymax}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{dashed}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{pl}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{|coef| / max|coef|}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{pl}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Coefficients}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{pl}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{LASSO Path for time delay of }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{ min}\PY{l+s}{\PYZsq{}}\PY{o}{\PYZpc{}}\PY{k}{time}\PY{p}{)}
+            \PY{n}{pl}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{tight}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{pl}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+            \PY{n}{pl}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+-1440
+.
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+-c:12: DeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-1380
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_4.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-1320
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_6.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-1260
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_8.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-1200
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_10.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-1140
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_12.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-1080
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_14.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-1020
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_16.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-960
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_18.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-900
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_20.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-840
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_22.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-780
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_24.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-720
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_26.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-660
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_28.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-600
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_30.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-540
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_32.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-480
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_34.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-420
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_36.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-360
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_38.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-300
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_40.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-240
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_42.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-180
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_44.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-120
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_46.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+-60
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_48.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+0
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_50.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+60
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_52.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+120
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_54.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+180
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_56.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+240
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_58.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+300
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_60.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+360
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_62.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+420
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_64.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+480
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_66.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+540
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_68.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+600
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_70.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+660
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_72.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+720
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_74.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+780
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_76.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+840
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_78.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+900
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_80.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+960
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_82.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+1020
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_84.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+1080
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_86.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+1140
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_88.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+1200
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_90.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+1260
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_92.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+1320
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_94.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+1380
+.
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_10_96.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c}{\PYZsh{} EXPERIMENT: ridge regression with optimization of regul parameter}
+         \PY{c}{\PYZsh{} train and test data}
+         \PY{n}{X\PYZus{}norm\PYZus{}train} \PY{o}{=} \PY{n}{X\PYZus{}norm}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{p}{,}\PY{p}{:}\PY{p}{]}
+         \PY{n}{Y\PYZus{}norm\PYZus{}train} \PY{o}{=} \PY{n}{Y\PYZus{}norm}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{p}{]}
+         
+         \PY{n}{X\PYZus{}norm\PYZus{}test} \PY{o}{=} \PY{n}{X\PYZus{}norm}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{]}
+         \PY{n}{Y\PYZus{}norm\PYZus{}test} \PY{o}{=} \PY{n}{Y\PYZus{}norm}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{n}{STEPS\PYZus{}FOR\PYZus{}TESTING}\PY{p}{:}\PY{p}{]}
+         
+         \PY{n}{regul\PYZus{}a} \PY{o}{=} \PY{l+m+mi}{100}
+         \PY{n}{regul\PYZus{}a} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{logspace}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{n}{regul\PYZus{}a}\PY{p}{)}
+         \PY{n}{clf} \PY{o}{=} \PY{n}{linear\PYZus{}model}\PY{o}{.}\PY{n}{Ridge}\PY{p}{(}\PY{n}{fit\PYZus{}intercept}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{,}\PY{n}{normalize}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}
+         \PY{n}{coefs} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{predictions} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{MAE\PYZus{}train} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{n}{MAE\PYZus{}test} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         \PY{k}{for} \PY{n}{a} \PY{o+ow}{in} \PY{n}{regul\PYZus{}a}\PY{p}{:}
+             \PY{n}{clf}\PY{o}{.}\PY{n}{set\PYZus{}params}\PY{p}{(}\PY{n}{alpha}\PY{o}{=}\PY{n}{a}\PY{p}{)}
+             \PY{n}{clf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}norm\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}norm\PYZus{}train}\PY{p}{)}
+             \PY{n}{coefs}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{clf}\PY{o}{.}\PY{n}{coef\PYZus{}}\PY{p}{)}
+             \PY{c}{\PYZsh{} train error}
+             \PY{n}{Y\PYZus{}pred} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}norm\PYZus{}train}\PY{p}{)}
+             \PY{n}{MAE\PYZus{}train}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{absolute}\PY{p}{(}\PY{n}{Y\PYZus{}pred}\PY{o}{\PYZhy{}}\PY{n}{Y\PYZus{}norm\PYZus{}train}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             \PY{c}{\PYZsh{} test error}
+             \PY{n}{Y\PYZus{}pred} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}norm\PYZus{}test}\PY{p}{)}
+             \PY{n}{predictions}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Y\PYZus{}pred}\PY{p}{)}
+             \PY{n}{MAE\PYZus{}test}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{absolute}\PY{p}{(}\PY{n}{Y\PYZus{}pred}\PY{o}{\PYZhy{}}\PY{n}{Y\PYZus{}norm\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{c}{\PYZsh{} plot MAE in function of regul parameter}
+         \PY{n}{ax} \PY{o}{=} \PY{n}{pl}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}
+         \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}color\PYZus{}cycle}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{m}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{regul\PYZus{}a}\PY{p}{,} \PY{n}{MAE\PYZus{}train}\PY{p}{)}
+         \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{regul\PYZus{}a}\PY{p}{,} \PY{n}{MAE\PYZus{}test}\PY{p}{)}
+         \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xscale}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{log}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlim}\PY{p}{(}\PY{n}{ax}\PY{o}{.}\PY{n}{get\PYZus{}xlim}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}  \PY{c}{\PYZsh{} reverse axis}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{alpha}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{MAE}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{MAE train (blue) and test (red) as a function of the regularization}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{tight}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{} plot predictions}
+         \PY{n}{ax} \PY{o}{=} \PY{n}{pl}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}
+         \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}color\PYZus{}cycle}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{m}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{Y\PYZus{}norm\PYZus{}test}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{predictions}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{predictions}\PY{p}{[}\PY{l+m+mi}{40}\PY{p}{]}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{predictions}\PY{p}{[}\PY{l+m+mi}{80}\PY{p}{]}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{predictions}\PY{p}{[}\PY{l+m+mi}{99}\PY{p}{]}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_12_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_12_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn.decomposition} \PY{k+kn}{import} \PY{n}{FastICA}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn.preprocessing} \PY{k+kn}{import} \PY{n}{Imputer}
+         
+         \PY{n}{imputer} \PY{o}{=} \PY{n}{Imputer}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{data} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{o}{.}\PY{n}{from\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{20140907\PYZus{}data\PYZus{}plants\PYZus{}trial.csv}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         
+         \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{interpolate}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{data} \PY{o}{=} \PY{p}{(}\PY{n}{data} \PY{o}{\PYZhy{}} \PY{n}{data}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{n}{data}\PY{o}{.}\PY{n}{std}\PY{p}{(}\PY{p}{)}
+         
+         \PY{k}{print} \PY{n}{data}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+temperature          LPS1          LPS5          LPS4          LPS6  \textbackslash{}
+count  2.405100e+04  2.405100e+04  2.405100e+04  2.405100e+04  2.405100e+04   
+mean   2.657157e-14  1.780464e-14  2.544632e-14  1.764868e-15 -9.013108e-15   
+std    1.000000e+00  1.000000e+00  1.000000e+00  1.000000e+00  1.000000e+00   
+min   -2.194354e+00 -3.638295e+00 -1.992857e+00 -3.335460e+00 -4.215856e+00   
+25\%   -6.169427e-01 -4.749786e-01 -8.314994e-01 -7.865209e-01 -4.175932e-01   
+50\%   -1.071095e-01  2.672273e-01  2.511648e-01  1.270013e-02  3.353692e-01   
+75\%    5.394310e-01  6.527244e-01  8.735698e-01  7.104083e-01  6.897272e-01   
+max    3.773351e+00  2.476011e+00  1.478647e+00  3.722511e+00  3.267634e+00   
+
+             TDP0cm       TDP14cm  
+count  2.405100e+04  2.405100e+04  
+mean  -1.135076e-14  9.181546e-15  
+std    1.000000e+00  1.000000e+00  
+min   -8.272552e-01 -7.558887e-01  
+25\%   -7.508075e-01 -6.941850e-01  
+50\%   -6.017369e-01 -6.148720e-01  
+75\%    6.317689e-01  4.679811e-01  
+max    2.707448e+00  3.134027e+00
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{ICAmodel} \PY{o}{=} \PY{n}{FastICA}\PY{p}{(}\PY{n}{n\PYZus{}components}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
+         
+         \PY{n}{ICAmodel}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{values}\PY{p}{)}
+         
+         \PY{n}{loadings} \PY{o}{=} \PY{n}{ICAmodel}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{data}\PY{o}{.}\PY{n}{values}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{n}{ax} \PY{o}{=} \PY{n}{pl}\PY{o}{.}\PY{n}{gca}\PY{p}{(}\PY{p}{)}
+         \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}color\PYZus{}cycle}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{m}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{:}
+             \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{loadings}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{60}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{loadings}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{loadings}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{label} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{comp. }\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZsq{}}\PY{o}{\PYZpc{}}\PY{p}{(}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)} \PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (h)}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Value of components}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ICA decomposition of plant data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{pl}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{tight}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+         
+         \PY{n}{pl}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Rekenen_met_planten_files/Rekenen_met_planten_15_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{mixing} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{\PYZob{}}\PY{n}{data}\PY{o}{.}\PY{n}{columns}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{p}{:} \PY{n}{ICAmodel}\PY{o}{.}\PY{n}{mixing\PYZus{}}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{7}\PY{p}{)}\PY{p}{\PYZcb{}}\PY{p}{)}
+         \PY{k}{print} \PY{n}{mixing}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+LPS1        LPS4        LPS5        LPS6      TDP0cm     TDP14cm  \textbackslash{}
+0  -34.920037  -28.335745    3.469700 -134.123031  130.426792  128.950162   
+1   59.200934  135.732807  135.232255   31.590661  -43.018814  -45.923116   
+2   12.764331  -53.125824   72.350158  -25.345953    4.451432    6.693564   
+3 -135.488352  -43.689535   19.703178  -57.173264   68.716174   68.562892   
+
+   temperature  
+0    86.751593  
+1     0.126005  
+2     3.290010  
+3   121.783849
+    \end{Verbatim}
+
+    We see that the data can be divided in different components that act on
+different timescales. The loadings can be found above.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} 
+\end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
